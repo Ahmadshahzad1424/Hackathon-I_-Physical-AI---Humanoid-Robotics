@@ -1,0 +1,8 @@
+{
+  "label": "The Digital Twin (Gazebo & Unity)",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Physics-based simulation for humanoid robots using Gazebo and Unity to create realistic digital twins for testing and training."
+  }
+}

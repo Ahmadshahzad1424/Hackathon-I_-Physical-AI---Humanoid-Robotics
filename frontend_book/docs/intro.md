@@ -2,46 +2,17 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# ROS 2 for Physical AI & Humanoid Robotics
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the comprehensive guide on ROS 2 (Robot Operating System 2) for Physical AI and Humanoid Robotics applications. This book will guide you through the essential concepts of ROS 2, from basic communication patterns to advanced robot structure description using URDF.
 
-## Getting Started
+## What You'll Learn
 
-Get started by **creating a new site**.
+- Introduction to ROS 2 concepts and why it matters for humanoid robots
+- Core communication models: Nodes, Topics, Services
+- How to describe robot structure using URDF (Unified Robot Description Format)
+- Practical applications for humanoid robot control and simulation
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Target Audience
 
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+This book is designed for robotics engineers, AI researchers, and developers working on humanoid robots and physical AI systems who want to master ROS 2 for their projects.
