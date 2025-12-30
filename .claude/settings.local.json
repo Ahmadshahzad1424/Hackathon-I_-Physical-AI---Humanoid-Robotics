@@ -28,7 +28,8 @@
       "Bash(.specify/scripts/bash/check-prerequisites.sh -Json)",
       "Skill(sp.phr)",
       "Bash(.specify/scripts/bash/create-phr.sh --title \"VLA Module Tasks Generation\" --stage tasks --feature \"4-vla\" --json)",
-      "Bash(.specify/scripts/powershell/create-phr.ps1 --title \"VLA Module Tasks Generation\" --stage tasks --feature \"4-vla\" --json)"
+      "Bash(.specify/scripts/powershell/create-phr.ps1 --title \"VLA Module Tasks Generation\" --stage tasks --feature \"4-vla\" --json)",
+      "Bash(mkdir -p frontend_book/docs/vla)"
     ]
   }
 }
