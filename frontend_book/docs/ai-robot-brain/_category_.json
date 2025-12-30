@@ -1,0 +1,8 @@
+{
+  "label": "The AI-Robot Brain (NVIDIA Isaac)",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Advanced perception, navigation, and training for humanoid robots using NVIDIA Isaac platforms, focusing on system-level understanding of AI acceleration."
+  }
+}

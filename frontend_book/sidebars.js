@@ -48,6 +48,16 @@ const sidebars = {
         'digital-twin/hri-unity'
       ],
     },
+    {
+      type: 'category',
+      label: 'The AI-Robot Brain (NVIDIA Isaac)',
+      items: [
+        'ai-robot-brain/introduction',
+        'ai-robot-brain/isaac-sim',
+        'ai-robot-brain/isaac-ros',
+        'ai-robot-brain/nav2-navigation'
+      ],
+    },
   ],
 };
 

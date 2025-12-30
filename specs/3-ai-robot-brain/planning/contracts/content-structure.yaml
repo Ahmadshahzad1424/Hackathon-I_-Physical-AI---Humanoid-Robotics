@@ -1,0 +1,118 @@
+# Content Structure Contract for AI-Robot Brain Module
+
+openapi: 3.0.0
+info:
+  title: AI-Robot Brain Educational Content Structure
+  description: Specification for the structure and organization of AI-Robot Brain educational content
+  version: 1.0.0
+
+paths: {}
+
+components:
+  schemas:
+    Chapter:
+      type: object
+      required:
+        - id
+        - title
+        - learningObjectives
+        - content
+        - keyTakeaways
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the chapter
+          example: "introduction" or "isaac-sim"
+        title:
+          type: string
+          description: Display title of the chapter
+          example: "Introduction to the AI-Robot Brain"
+        learningObjectives:
+          type: array
+          items:
+            type: string
+          description: List of learning objectives for the chapter
+          example: ["Understand the AI-Robot Brain concept", "Explain perception in Physical AI systems"]
+        content:
+          type: string
+          description: Main content of the chapter in Markdown format
+        keyTakeaways:
+          type: array
+          items:
+            type: string
+          description: Key points to remember from the chapter
+        furtherReading:
+          type: array
+          items:
+            type: string
+          description: Additional resources for deeper understanding
+          example: ["Official NVIDIA Isaac documentation", "ROS 2 navigation tutorials"]
+
+    AIRobotBrainModule:
+      type: object
+      required:
+        - id
+        - title
+        - chapters
+        - categoryConfig
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the module
+          example: "ai-robot-brain"
+        title:
+          type: string
+          description: Display title of the module
+          example: "The AI-Robot Brain (NVIDIA Isaac)"
+        chapters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Chapter'
+          description: List of chapters in the module
+          minItems: 4
+          maxItems: 4
+        categoryConfig:
+          type: object
+          description: Configuration for Docusaurus category display
+          properties:
+            label:
+              type: string
+              description: Display label for the category
+              example: "The AI-Robot Brain (NVIDIA Isaac)"
+            position:
+              type: integer
+              description: Position in navigation
+              example: 4
+            link:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: Type of link
+                  enum: [generated-index]
+                description:
+                  type: string
+                  description: Description of the module
+                  example: "Advanced perception, navigation, and training for humanoid robots using NVIDIA Isaac platforms"
+
+    ContentRequirements:
+      type: object
+      properties:
+        format:
+          type: string
+          description: Required format for content
+          enum: [markdown]
+          example: "markdown"
+        technicalFocus:
+          type: string
+          description: Technical focus of the content
+          enum: [conceptual, system-level]
+          example: "system-level"
+        hardwareSpecific:
+          type: boolean
+          description: Whether content includes hardware-specific instructions
+          example: false
+        targetAudience:
+          type: string
+          description: Intended audience for the content
+          example: "Robotics researchers and engineers"
