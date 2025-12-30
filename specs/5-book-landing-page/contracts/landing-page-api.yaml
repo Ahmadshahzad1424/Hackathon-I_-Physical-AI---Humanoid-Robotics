@@ -1,0 +1,149 @@
+# API Contract: Book Landing Page Data
+
+## Overview
+This API provides data for the book landing page, including book information, modules, and user interactions.
+
+## Base URL
+`/api/v1`
+
+## Endpoints
+
+### GET /book
+Retrieve the main book information for the landing page.
+
+**Response**:
+```json
+{
+  "id": "physical-ai-humanoid-robotics-book",
+  "title": "Physical AI & Humanoid Robotics",
+  "description": "A comprehensive guide to building intelligent humanoid robots",
+  "theme": "Physical AI & Humanoid Robotics",
+  "learningOutcomes": [
+    "Understand the fundamentals of Physical AI",
+    "Learn to design and build humanoid robots",
+    "Implement Agentic AI systems for robotics"
+  ],
+  "scope": "Complete coverage of Physical AI, Agentic AI, and Humanoid Robotics systems",
+  "tools": [
+    "ROS 2",
+    "Gazebo",
+    "Unity",
+    "Python",
+    "C++"
+  ],
+  "skillsGained": [
+    "Robotics programming",
+    "AI implementation",
+    "Physical simulation",
+    "Humanoid control systems"
+  ],
+  "ctaButtons": [
+    {
+      "id": "read-book",
+      "text": "Read the Book",
+      "target": "/docs/intro"
+    },
+    {
+      "id": "explore-modules",
+      "text": "Explore Modules",
+      "target": "/docs/modules"
+    }
+  ]
+}
+```
+
+### GET /modules
+Retrieve the list of modules for the book.
+
+**Response**:
+```json
+{
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "ROS 2 for Physical AI",
+      "description": "Introduction to ROS 2 as the middleware nervous system for humanoid robots",
+      "order": 1,
+      "topics": [
+        "ROS 2 concepts",
+        "Communication models",
+        "Node management"
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Robot Structure with URDF",
+      "description": "Understanding URDF for humanoid robots - Links, joints, coordinate frames",
+      "order": 2,
+      "topics": [
+        "URDF basics",
+        "Robot modeling",
+        "Simulation readiness"
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Digital Twin Simulation",
+      "description": "Physics-based simulation for humanoid robots using Gazebo and Unity",
+      "order": 3,
+      "topics": [
+        "Gazebo simulation",
+        "Unity integration",
+        "Sensor simulation"
+      ]
+    },
+    {
+      "id": "module-4",
+      "title": "Vision-Language-Action Systems",
+      "description": "Building VLA systems for robot perception and action",
+      "order": 4,
+      "topics": [
+        "Perception systems",
+        "Cognitive planning",
+        "Action execution"
+      ]
+    }
+  ]
+}
+```
+
+### POST /analytics/conversion
+Track user interactions with the landing page for conversion analysis.
+
+**Request**:
+```json
+{
+  "userId": "user-123",
+  "action": "cta-click",
+  "ctaId": "read-book",
+  "timestamp": "2025-12-30T10:00:00Z"
+}
+```
+
+**Response**:
+```json
+{
+  "status": "success",
+  "trackingId": "track-456"
+}
+```
+
+## Error Responses
+
+All error responses follow this format:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable error message",
+    "details": "Additional error details if applicable"
+  }
+}
+```
+
+## Status Codes
+
+- `200`: Success
+- `400`: Bad Request
+- `404`: Resource Not Found
+- `500`: Internal Server Error
