@@ -24,7 +24,11 @@
       "Bash(.specify/scripts/bash/create-new-feature.sh --json --number 1 --short-name \"digital-twin\" \"Project: Physical AI & Humanoid Robotics\nModule: Module 2 – The Digital Twin \\(Gazebo & Unity\\)\n\nFocus:\n- Physics-based simulation for humanoid robots\n- Building realistic digital twins for testing and training\n\nChapters \\(Docusaurus\\):\n1. Introduction to Digital Twins\n   - What digital twins are and why they matter for Physical AI\n\n2. Physics Simulation with Gazebo\n   - Gravity, collisions, joint dynamics, and world configuration\n\n3. Sensors and Environment Simulation\n   - Simulating LiDAR, depth cameras, IMUs, and sensor noise\n\n4. Human-Robot Interaction with Unity\n   - High-fidelity rendering and interactive simulation scenarios\n\nSuccess criteria:\n- Reader understands the role of simulation in humanoid robotics\n- Reader can explain how physics and sensors are simulated\n- Reader understands how digital twins support safe AI training\n\nConstraints:\n- Format: Markdown \\(.md\\) for Docusaurus\n- No hardware-specific setup\n- Conceptual and simulation-focused only\n\nNot building:\n- Real robot deployment\n- G\")",
       "Bash(mkdir -p specs/1-digital-twin)",
       "Bash(.specify/scripts/powershell/setup-plan.ps1 -Json)",
-      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json)"
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh -Json)",
+      "Skill(sp.phr)",
+      "Bash(.specify/scripts/bash/create-phr.sh --title \"VLA Module Tasks Generation\" --stage tasks --feature \"4-vla\" --json)",
+      "Bash(.specify/scripts/powershell/create-phr.ps1 --title \"VLA Module Tasks Generation\" --stage tasks --feature \"4-vla\" --json)"
     ]
   }
 }
