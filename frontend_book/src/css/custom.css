@@ -6,25 +6,114 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary colors - Modern blue-based palette */
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+
+  /* Secondary colors */
+  --ifm-color-secondary: #64748b;
+  --ifm-color-secondary-dark: #475569;
+  --ifm-color-secondary-darker: #334155;
+  --ifm-color-secondary-darkest: #1e293b;
+  --ifm-color-secondary-light: #94a3b8;
+  --ifm-color-secondary-lighter: #cbd5e1;
+  --ifm-color-secondary-lightest: #e2e8f0;
+
+  /* Accent colors */
+  --ifm-color-accent: #f59e0b;
+  --ifm-color-accent-dark: #d97706;
+  --ifm-color-accent-darker: #b45309;
+  --ifm-color-accent-light: #fbbf24;
+  --ifm-color-accent-lighter: #fcd34d;
+
+  /* Success, Warning, Danger colors */
+  --ifm-color-success: #10b981;
+  --ifm-color-warning: #f59e0b;
+  --ifm-color-danger: #ef4444;
+
+  /* Background and text colors */
+  --ifm-color-background: #f8fafc;
+  --ifm-color-background-light: #f1f5f9;
+  --ifm-color-background-lighter: #e2e8f0;
+  --ifm-color-text: #1e293b;
+  --ifm-color-text-light: #64748b;
+  --ifm-color-text-lighter: #94a3b8;
+
+  /* Code and syntax highlighting */
+  /* Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.6;
+  --ifm-heading-font-weight: 600;
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 2rem;
+  --ifm-h3-font-size: 1.5rem;
+  --ifm-h4-font-size: 1.25rem;
+  --ifm-h5-font-size: 1rem;
+  --ifm-h6-font-size: 0.875rem;
+
+  /* Spacing and sizing */
+  --ifm-spacing-scale: 1.25;
+  --ifm-spacing-unit: 1rem;
+  --ifm-global-spacing: calc(var(--ifm-spacing-unit) * var(--ifm-spacing-scale));
+  --ifm-global-radius: 0.5rem;
+  --ifm-global-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Primary colors - Modern blue-based palette for dark mode */
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
+
+  /* Secondary colors for dark mode */
+  --ifm-color-secondary: #94a3b8;
+  --ifm-color-secondary-dark: #cbd5e1;
+  --ifm-color-secondary-darker: #e2e8f0;
+  --ifm-color-secondary-darkest: #f1f5f9;
+  --ifm-color-secondary-light: #64748b;
+  --ifm-color-secondary-lighter: #475569;
+  --ifm-color-secondary-lightest: #334155;
+
+  /* Accent colors for dark mode */
+  --ifm-color-accent: #fbbf24;
+  --ifm-color-accent-dark: #f59e0b;
+  --ifm-color-accent-darker: #d97706;
+  --ifm-color-accent-light: #fcd34d;
+  --ifm-color-accent-lighter: #fde68a;
+
+  /* Background and text colors for dark mode */
+  --ifm-color-background: #0f172a;
+  --ifm-color-background-light: #1e293b;
+  --ifm-color-background-lighter: #334155;
+  --ifm-color-text: #f1f5f9;
+  --ifm-color-text-light: #cbd5e1;
+  --ifm-color-text-lighter: #94a3b8;
+
+  /* Typography for dark mode */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.6;
+  --ifm-heading-font-weight: 600;
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 2rem;
+  --ifm-h3-font-size: 1.5rem;
+  --ifm-h4-font-size: 1.25rem;
+  --ifm-h5-font-size: 1rem;
+  --ifm-h6-font-size: 0.875rem;
+
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.2);
 }

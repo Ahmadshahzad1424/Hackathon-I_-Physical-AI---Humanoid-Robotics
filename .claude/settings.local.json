@@ -29,7 +29,9 @@
       "Skill(sp.phr)",
       "Bash(.specify/scripts/bash/create-phr.sh --title \"VLA Module Tasks Generation\" --stage tasks --feature \"4-vla\" --json)",
       "Bash(.specify/scripts/powershell/create-phr.ps1 --title \"VLA Module Tasks Generation\" --stage tasks --feature \"4-vla\" --json)",
-      "Bash(mkdir -p frontend_book/docs/vla)"
+      "Bash(mkdir -p frontend_book/docs/vla)",
+      "Bash(.specify/scripts/powershell/create-new-feature.ps1 -Json \"Project: Physical AI & Humanoid Robotics\nModule: UI Upgrade - Docusaurus-based project \\(book_frontend\\)\n\nFocus:\n- Upgrade UI for Docusaurus-based project \\(book_frontend\\) \n- Target audience: Developers and readers using the book_frontend site\n- Focus: Modern, clean, and user-friendly UI/UX without changing core content\n- Success criteria: Improved visual design \\(layout, typography, colors\\), Better navigation and readability, Fully compatible with Docusaurus theming system, Responsive design for desktop and mobile\n- Additional requirement: Module structure with Module 1-4 and sub-parts as chapters\" --json --number 1 --short-name \"docusaurus-ui-upgrade\")",
+      "Skill(sp.tasks)"
     ]
   }
 }
