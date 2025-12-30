@@ -62,6 +62,7 @@ const sidebars = {
       type: 'category',
       label: 'Vision-Language-Action (VLA)',
       items: [
+        'vla/index',
         'vla/intro',
         'vla/concepts',
         'vla/embodied-intelligence',
@@ -79,7 +80,9 @@ const sidebars = {
         'vla/navigation-system',
         'vla/manipulation-system',
         'vla/integration-overview',
-        'vla/edge-cases'
+        'vla/edge-cases',
+        'vla/implementation-guidelines',
+        'vla/conclusion'
       ],
     },
   ],
