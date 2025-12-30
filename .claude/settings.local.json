@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(sp.constitution)",
+      "Skill(sp.specify)",
+      "Bash(git fetch --all --prune)",
+      "Bash(.specify/scripts/powershell/create-new-feature.ps1 -Json \"$ARGUMENTS\" --json --number 1 --short-name \"ros2-urdf-structure\" \"Project: Physical AI & Humanoid Robotics\nModule: Module 1 – The Robotic Nervous System \\(ROS 2\\)\nChapter: Chapter 3 – Robot Structure with URDF\n\nFocus:\n- ROS 2 as the middleware nervous system for humanoid robots\n- Core communication concepts and humanoid structural description\n\nChapters \\(Docusaurus\\):\n1. Introduction to ROS 2 for Physical AI\n   - What ROS 2 is, why it matters for humanoid robots, DDS concepts\n\n2. ROS 2 Communication Model\n   - Nodes, Topics, Services\n   - Basic rclpy-based agent → controller communication flow\n\n3. Robot Structure with URDF\n   - Understanding URDF for humanoid robots\n   - Links, joints, coordinate frames, and simulation readiness\n   - How URDF enables control, sensing, and digital twins\")",
+      "Skill(sp.plan)",
+      "Skill(sp.implement)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json -RequireTasks -IncludeTasks)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(npx create-docusaurus@latest frontend_book classic)",
+      "Bash(npx create-docusaurus@latest frontend_book classic --typescript false)"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+# Documentation API Contracts
+
+## ROS 2 Node Information API
+
+### GET /api/ros2/nodes/{node_name}
+Retrieve information about a specific ROS 2 node.
+
+**Request**:
+- Path parameter: `node_name` (string) - Name of the ROS 2 node
+
+**Response**:
+```json
+{
+  "name": "string",
+  "publishers": [
+    {
+      "topic": "string",
+      "type": "string"
+    }
+  ],
+  "subscribers": [
+    {
+      "topic": "string",
+      "type": "string"
+    }
+  ],
+  "services": [
+    {
+      "name": "string",
+      "type": "string"
+    }
+  ],
+  "parameters": {
+    "parameter_name": "parameter_value"
+  }
+}
+```
+
+## URDF Validation API
+
+### POST /api/urdf/validate
+Validate a URDF file for correctness.
+
+**Request**:
+```json
+{
+  "urdf_content": "string"
+}
+```
+
+**Response**:
+```json
+{
+  "valid": "boolean",
+  "errors": [
+    {
+      "line": "number",
+      "message": "string"
+    }
+  ],
+  "warnings": [
+    {
+      "line": "number",
+      "message": "string"
+    }
+  ]
+}
+```
+
+## Example Code Retrieval API
+
+### GET /api/examples/{category}/{example_name}
+Retrieve example code or URDF files.
+
+**Request**:
+- Path parameter: `category` (string) - Category of example (ros2-basics, ros2-communication, urdf-structure)
+- Path parameter: `example_name` (string) - Name of the example
+
+**Response**:
+```json
+{
+  "name": "string",
+  "description": "string",
+  "code": "string",
+  "language": "string",
+  "dependencies": ["string"]
+}
+```
