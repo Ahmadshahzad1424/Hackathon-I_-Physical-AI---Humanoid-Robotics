@@ -58,6 +58,30 @@ const sidebars = {
         'ai-robot-brain/nav2-navigation'
       ],
     },
+    {
+      type: 'category',
+      label: 'Vision-Language-Action (VLA)',
+      items: [
+        'vla/intro',
+        'vla/concepts',
+        'vla/embodied-intelligence',
+        'vla/architecture',
+        'vla/voice-to-action',
+        'vla/whisper-integration',
+        'vla/speech-pipeline',
+        'vla/voice-challenges',
+        'vla/cognitive-planning',
+        'vla/llm-translation',
+        'vla/ros2-actions',
+        'vla/nlg-processing',
+        'vla/capstone',
+        'vla/perception-system',
+        'vla/navigation-system',
+        'vla/manipulation-system',
+        'vla/integration-overview',
+        'vla/edge-cases'
+      ],
+    },
   ],
 };
 

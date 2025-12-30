@@ -1,0 +1,92 @@
+---
+sidebar_position: 2
+title: VLA Core Concepts
+---
+
+# Vision-Language-Action Core Concepts
+
+## Key Terminology
+
+### Vision-Language-Action (VLA)
+A unified framework that integrates visual perception, language understanding, and robotic action to enable robots to understand and execute tasks based on human language commands while perceiving their environment.
+
+### Embodied Intelligence
+The concept of artificial intelligence that exists and operates within a physical body (robot), enabling it to interact with the physical world through perception and action.
+
+### Vision Processing
+The computational process of interpreting visual data from cameras or other sensors to understand the environment, objects, and spatial relationships.
+
+### Natural Language Processing (NLP)
+The field of AI focused on enabling computers to understand, interpret, and generate human language in a valuable way.
+
+### Action Space
+The set of all possible actions that a robot can perform, including both low-level motor commands and high-level behavioral sequences.
+
+### Multimodal Integration
+The process of combining information from multiple sensory modalities (vision, language, etc.) to form a coherent understanding and response.
+
+### Cognitive Planning
+The process of translating high-level goals or commands into sequences of executable actions, often involving reasoning and decision-making.
+
+### Perceptual Grounding
+The connection between abstract concepts (like words) and their concrete sensory representations (like visual objects).
+
+## Core Components of VLA Systems
+
+### 1. Visual Perception Module
+- Processes visual input from cameras and sensors
+- Identifies objects, obstacles, and spatial relationships
+- Tracks moving objects and changes in the environment
+- Provides semantic understanding of visual scenes
+
+### 2. Language Understanding Module
+- Interprets natural language commands and queries
+- Extracts intent, entities, and action specifications
+- Handles ambiguity and context in human language
+- Maps language to actionable concepts
+
+### 3. Action Execution Module
+- Translates high-level plans into low-level robot commands
+- Manages motor control and coordination
+- Handles real-time adjustments based on feedback
+- Ensures safe and effective execution
+
+### 4. Integration Layer
+- Coordinates information flow between components
+- Manages temporal synchronization
+- Handles conflicts and ambiguities between modalities
+- Maintains consistent internal representations
+
+## VLA System Architecture
+
+The typical VLA system follows a pipeline architecture:
+
+1. **Input Processing**: Raw sensory data and language inputs are processed
+2. **Feature Extraction**: Relevant features are extracted from each modality
+3. **Multimodal Fusion**: Information from different modalities is combined
+4. **Reasoning & Planning**: High-level reasoning and action planning occurs
+5. **Action Generation**: Specific robot actions are generated and executed
+6. **Feedback Loop**: Results are monitored and used for adaptation
+
+## Key Challenges
+
+### Cross-Modal Alignment
+Ensuring that visual concepts, language concepts, and action concepts are properly aligned and understood in relation to each other.
+
+### Real-Time Processing
+Managing the computational demands of processing multiple high-bandwidth modalities in real-time.
+
+### Robustness
+Handling noise, ambiguity, and uncertainty in both perception and language understanding.
+
+### Generalization
+Creating systems that can handle novel situations, objects, and commands not seen during training.
+
+## Applications in Humanoid Robotics
+
+VLA systems are particularly important for humanoid robots because they enable:
+
+- **Natural Communication**: Interaction through speech and gesture
+- **Adaptive Behavior**: Response to changing environments and tasks
+- **Collaborative Work**: Safe and effective collaboration with humans
+- **Learning from Demonstration**: Understanding and replicating human behaviors
