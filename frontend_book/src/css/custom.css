@@ -60,6 +60,139 @@
 }
 
 /* =========================
+   Physical AI & Humanoid Robotics Book Landing Page
+   Custom dark theme with neon blue/purple accents
+========================= */
+[data-theme='dark'] {
+  /* Dark theme colors for landing page */
+  --dark-bg-primary: #0a0a0a; /* Near black background */
+  --dark-bg-secondary: #121212; /* Dark slate background */
+  --dark-bg-tertiary: #1e1e1e; /* Slightly lighter dark */
+  --dark-text-primary: #ffffff; /* White text */
+  --dark-text-secondary: #b0b0b0; /* Gray text */
+  --dark-text-tertiary: #888888; /* Lighter gray text */
+
+  /* Neon blue accent */
+  --neon-blue: #00eeff; /* Bright cyan blue */
+  --neon-blue-hover: #00ccdd; /* Slightly darker for hover */
+  --neon-blue-glow: 0 0 10px #00eeff, 0 0 20px rgba(0, 238, 255, 0.5);
+
+  /* Neon purple accent */
+  --neon-purple: #bd00ff; /* Bright purple */
+  --neon-purple-hover: #a000d4; /* Slightly darker for hover */
+  --neon-purple-glow: 0 0 10px #bd00ff, 0 0 20px rgba(189, 0, 255, 0.5);
+
+  /* Mixed neon accent for special elements */
+  --neon-mix: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+
+  /* Card and UI elements */
+  --card-bg: rgba(30, 30, 30, 0.8);
+  --card-border: 1px solid rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  /* Transition effects */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Apply dark theme to landing page */
+.landing-page {
+  background: var(--dark-bg-primary);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* Common styles for all sections */
+.landing-section {
+  margin: 4rem 0;
+  padding: 2rem 0;
+}
+
+.landing-section-title {
+  color: var(--dark-text-primary);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: var(--neon-mix);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles for landing page */
+.neon-button {
+  background: var(--neon-mix);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  box-shadow: var(--neon-blue-glow);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.neon-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #00eeff, 0 0 30px rgba(0, 238, 255, 0.7),
+              0 0 20px #bd00ff, 0 0 30px rgba(189, 0, 255, 0.7);
+}
+
+.neon-button-secondary {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  box-shadow: none;
+}
+
+.neon-button-secondary:hover {
+  background: rgba(0, 238, 255, 0.1);
+  box-shadow: var(--neon-blue-glow);
+}
+
+/* Card styles for landing page */
+.landing-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem;
+  transition: var(--transition-normal);
+  box-shadow: var(--card-shadow);
+}
+
+.landing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Glow effects */
+.glow-text {
+  color: var(--dark-text-primary);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.glow-element {
+  box-shadow: var(--neon-blue-glow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .landing-section-title {
+    font-size: 2rem;
+  }
+
+  .neon-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* =========================
    Code Blocks
 ========================= */
 .prism-code {
