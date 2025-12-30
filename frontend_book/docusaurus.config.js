@@ -3,8 +3,8 @@ const {themes: prismThemes} = require('prism-react-renderer');
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Physical AI & Humanoid Robotics',
+  tagline: 'Advanced Robotics Education Platform',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -20,8 +20,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'PANAVERSITY', // Usually your GitHub org/user name.
+  projectName: 'Hackathon_I_Physical_Humanoid_Robotics', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -42,7 +42,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -53,7 +53,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -73,9 +73,9 @@ const config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Physical AI & Humanoid Robotics',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Physical AI & Humanoid Robotics Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -83,11 +83,11 @@ const config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Modules',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics',
           label: 'GitHub',
           position: 'right',
         },
@@ -97,11 +97,27 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Modules',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Introduction',
               to: '/docs/intro',
+            },
+            {
+              label: 'ROS 2 & URDF',
+              to: '/docs/urdf-structure/understanding-urdf',
+            },
+            {
+              label: 'Digital Twin',
+              to: '/docs/digital-twin/introduction',
+            },
+            {
+              label: 'AI Robot Brain',
+              to: '/docs/ai-robot-brain/introduction',
+            },
+            {
+              label: 'Vision-Language-Action',
+              to: '/docs/vla/intro',
             },
           ],
         },
@@ -131,12 +147,12 @@ const config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} PANAVERSITY. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,12 +1,13 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Global SaaS-grade styling for Docusaurus
+ * Clean, modern, production-ready
  */
 
-/* You can override the default Infima variables here. */
+/* =========================
+   Design Tokens (Light)
+========================= */
 :root {
-  /* Primary colors - Modern blue-based palette */
+  /* Brand */
   --ifm-color-primary: #2563eb;
   --ifm-color-primary-dark: #1d4ed8;
   --ifm-color-primary-darker: #1e40af;
@@ -15,105 +16,182 @@
   --ifm-color-primary-lighter: #60a5fa;
   --ifm-color-primary-lightest: #93c5fd;
 
-  /* Secondary colors */
+  /* Neutral */
   --ifm-color-secondary: #64748b;
-  --ifm-color-secondary-dark: #475569;
-  --ifm-color-secondary-darker: #334155;
-  --ifm-color-secondary-darkest: #1e293b;
-  --ifm-color-secondary-light: #94a3b8;
-  --ifm-color-secondary-lighter: #cbd5e1;
   --ifm-color-secondary-lightest: #e2e8f0;
+  --ifm-color-secondary-lighter: #cbd5e1;
+  --ifm-color-secondary-darkest: #1e293b;
 
-  /* Accent colors */
+  /* Accents */
   --ifm-color-accent: #f59e0b;
-  --ifm-color-accent-dark: #d97706;
-  --ifm-color-accent-darker: #b45309;
-  --ifm-color-accent-light: #fbbf24;
-  --ifm-color-accent-lighter: #fcd34d;
-
-  /* Success, Warning, Danger colors */
   --ifm-color-success: #10b981;
-  --ifm-color-warning: #f59e0b;
   --ifm-color-danger: #ef4444;
 
-  /* Background and text colors */
-  --ifm-color-background: #f8fafc;
-  --ifm-color-background-light: #f1f5f9;
-  --ifm-color-background-lighter: #e2e8f0;
-  --ifm-color-text: #1e293b;
-  --ifm-color-text-light: #64748b;
-  --ifm-color-text-lighter: #94a3b8;
+  /* Background & Text */
+  --ifm-background-color: #f8fafc;
+  --ifm-font-color-base: #1e293b;
+  --ifm-font-color-secondary: #64748b;
 
-  /* Code and syntax highlighting */
   /* Typography */
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
   --ifm-font-size-base: 16px;
   --ifm-line-height-base: 1.6;
   --ifm-heading-font-weight: 600;
-  --ifm-h1-font-size: 2.5rem;
-  --ifm-h2-font-size: 2rem;
-  --ifm-h3-font-size: 1.5rem;
-  --ifm-h4-font-size: 1.25rem;
-  --ifm-h5-font-size: 1rem;
-  --ifm-h6-font-size: 0.875rem;
 
-  /* Spacing and sizing */
-  --ifm-spacing-scale: 1.25;
-  --ifm-spacing-unit: 1rem;
-  --ifm-global-spacing: calc(var(--ifm-spacing-unit) * var(--ifm-spacing-scale));
+  /* Layout */
   --ifm-global-radius: 0.5rem;
-  --ifm-global-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ifm-global-shadow-sm: 0 2px 4px rgba(0,0,0,.05);
+  --ifm-global-shadow-md: 0 10px 20px rgba(0,0,0,.08);
 
+  /* Code */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(59,130,246,.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* =========================
+   Dark Mode Tokens
+========================= */
 [data-theme='dark'] {
-  /* Primary colors - Modern blue-based palette for dark mode */
   --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-darkest: #1e3a8a;
-  --ifm-color-primary-light: #60a5fa;
-  --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #bfdbfe;
+  --ifm-background-color: #0f172a;
+  --ifm-font-color-base: #f1f5f9;
+  --ifm-font-color-secondary: #94a3b8;
+  --docusaurus-highlighted-code-line-bg: rgba(59,130,246,.2);
+}
 
-  /* Secondary colors for dark mode */
-  --ifm-color-secondary: #94a3b8;
-  --ifm-color-secondary-dark: #cbd5e1;
-  --ifm-color-secondary-darker: #e2e8f0;
-  --ifm-color-secondary-darkest: #f1f5f9;
-  --ifm-color-secondary-light: #64748b;
-  --ifm-color-secondary-lighter: #475569;
-  --ifm-color-secondary-lightest: #334155;
+/* =========================
+   Code Blocks
+========================= */
+.prism-code {
+  border-radius: var(--ifm-global-radius);
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
 
-  /* Accent colors for dark mode */
-  --ifm-color-accent: #fbbf24;
-  --ifm-color-accent-dark: #f59e0b;
-  --ifm-color-accent-darker: #d97706;
-  --ifm-color-accent-light: #fcd34d;
-  --ifm-color-accent-lighter: #fde68a;
+div[class*='codeBlockContainer'] {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-sm);
+  margin-bottom: 1.5rem;
+}
 
-  /* Background and text colors for dark mode */
-  --ifm-color-background: #0f172a;
-  --ifm-color-background-light: #1e293b;
-  --ifm-color-background-lighter: #334155;
-  --ifm-color-text: #f1f5f9;
-  --ifm-color-text-light: #cbd5e1;
-  --ifm-color-text-lighter: #94a3b8;
+code {
+  background: var(--ifm-color-secondary-lightest);
+  color: var(--ifm-color-danger);
+  padding: .2rem .4rem;
+  border-radius: .25rem;
+}
 
-  /* Typography for dark mode */
-  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --ifm-font-size-base: 16px;
-  --ifm-line-height-base: 1.6;
-  --ifm-heading-font-weight: 600;
-  --ifm-h1-font-size: 2.5rem;
-  --ifm-h2-font-size: 2rem;
-  --ifm-h3-font-size: 1.5rem;
-  --ifm-h4-font-size: 1.25rem;
-  --ifm-h5-font-size: 1rem;
-  --ifm-h6-font-size: 0.875rem;
+[data-theme='dark'] code {
+  background: #1e293b;
+  color: #fbbf24;
+}
 
-  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.2);
+/* =========================
+   Buttons
+========================= */
+.button {
+  border-radius: .375rem;
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+/* =========================
+   Cards
+========================= */
+.card {
+  border-radius: .75rem;
+  border: 1px solid var(--ifm-color-secondary-lighter);
+  box-shadow: var(--ifm-global-shadow-sm);
+  transition: all .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+/* =========================
+   Tables
+========================= */
+table {
+  border-radius: .5rem;
+  overflow: hidden;
+  box-shadow: var(--ifm-global-shadow-sm);
+}
+
+th, td {
+  padding: .75rem 1rem;
+}
+
+/* =========================
+   Navigation
+========================= */
+.navbar {
+  padding: .5rem 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+
+.menu__link,
+.navbar__link {
+  border-radius: .375rem;
+  transition: background .15s ease;
+}
+
+.menu__link:hover,
+.navbar__link:hover {
+  background: var(--ifm-color-secondary-lightest);
+}
+
+/* =========================
+   Sidebar & Docs
+========================= */
+.sidebar {
+  border-radius: .5rem;
+  box-shadow: var(--ifm-global-shadow-sm);
+}
+
+.docItemContainer {
+  max-width: 100%;
+}
+
+/* =========================
+   Alerts & Admonitions
+========================= */
+.alert,
+.admonition {
+  border-radius: .5rem;
+  box-shadow: var(--ifm-global-shadow-sm);
+  border: none;
+}
+
+.admonition {
+  border-left-width: 4px;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+  background: var(--ifm-color-secondary-darkest);
+  padding: 3rem 0;
+}
+
+/* =========================
+   Responsive Polish
+========================= */
+@media (max-width: 996px) {
+  .menu,
+  .navbar-sidebar__brand {
+    padding: 1rem;
+  }
+
+  .docItemContainer {
+    padding: 0 .5rem;
+  }
 }
