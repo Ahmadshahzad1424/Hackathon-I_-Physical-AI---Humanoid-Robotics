@@ -1,4 +1,4 @@
-const {themes: prismThemes} = require('prism-react-renderer');
+const { themes: prismThemes } = require('prism-react-renderer');
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -13,7 +13,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://github.com/Ahmadshahzad1424/Hackathon-I_-Physical-AI---Humanoid-Robotics',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -85,7 +85,7 @@ const config = {
           position: 'left',
           label: 'Modules',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics',
           label: 'GitHub',

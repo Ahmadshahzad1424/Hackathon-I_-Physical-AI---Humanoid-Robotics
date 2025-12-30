@@ -16,7 +16,7 @@ const sidebars = {
     'intro',
     {
       type: 'category',
-      label: 'Module 1 - ROS 2 & URDF Structure',
+      label: 'Module 1 - ROS 2 for Physical AI & Humanoid Robotics',
       items: [
         {
           type: 'category',
@@ -46,7 +46,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Module 2 - Digital Twin (Gazebo & Unity)',
+      label: 'Module 2 - The Digital Twin (Gazebo & Unity)',
       items: [
         {
           type: 'category',
@@ -62,7 +62,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Module 3 - AI-Robot Brain (NVIDIA Isaac)',
+      label: 'Module 3 - The AI-Robot Brain (NVIDIA Isaac)',
       items: [
         {
           type: 'category',
@@ -78,7 +78,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Module 4 - Vision-Language-Action (VLA)',
+      label: 'Module 4 - Vision-Language-Action (VLA) Overview',
       items: [
         {
           type: 'category',
