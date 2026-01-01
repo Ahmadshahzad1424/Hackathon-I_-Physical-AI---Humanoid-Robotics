@@ -13,126 +13,152 @@
 const sidebars = {
   // Main sidebar configuration organized by modules
   tutorialSidebar: [
-    'intro',
     {
       type: 'category',
-      label: 'Module 1 - ROS 2 for Physical AI & Humanoid Robotics',
+      label: 'Physical AI & Humanoid Robotics',
+      collapsible: false,
       items: [
         {
           type: 'category',
-          label: 'Introduction to ROS 2',
+          label: 'PREFACE',
           items: [
-            'introduction/what-is-ros2'
-          ],
+            'intro'
+          ]
         },
         {
           type: 'category',
-          label: 'ROS 2 Communication Model',
+          label: 'Part 1: The Robotic Nervous System (ROS 2)',
           items: [
-            'communication-model/ros2-communication'
-          ],
+            {
+              type: 'category',
+              label: 'Chapter 1: Introduction to ROS 2 for Physical AI',
+              items: [
+                'introduction/what-is-ros2'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 2: ROS 2 Communication Model',
+              items: [
+                'communication-model/ros2-communication'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 3: Robot Structure and Control with URDF',
+              items: [
+                'urdf-structure/understanding-urdf',
+                'urdf-structure/advanced-urdf-concepts',
+                'urdf-structure/urdf-in-practice',
+                'urdf-structure/conclusion'
+              ]
+            }
+          ]
         },
         {
           type: 'category',
-          label: 'Robot Structure with URDF',
+          label: 'Part 2: The Digital Twin',
           items: [
-            'urdf-structure/understanding-urdf',
-            'urdf-structure/advanced-urdf-concepts',
-            'urdf-structure/urdf-in-practice',
-            'urdf-structure/conclusion'
-          ],
+            {
+              type: 'category',
+              label: 'Chapter 4: Introduction to Digital Twins',
+              items: [
+                'digital-twin/introduction'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 5: Physics Simulation with Gazebo',
+              items: [
+                'digital-twin/physics-simulation'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 6: Sensors and Environment Simulation',
+              items: [
+                'digital-twin/sensor-simulation'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 7: Human-Robot Interaction with Unity',
+              items: [
+                'digital-twin/hri-unity'
+              ]
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Part 3: The AI-Robot Brain',
+          items: [
+            {
+              type: 'category',
+              label: 'Chapter 8: The Role of Perception in Physical AI',
+              items: [
+                'ai-robot-brain/introduction'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 9: NVIDIA Isaac Sim and Synthetic Data',
+              items: [
+                'ai-robot-brain/isaac-sim'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 10: Isaac ROS and Accelerated Perception',
+              items: [
+                'ai-robot-brain/isaac-ros'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 11: Navigation and Planning with Nav2',
+              items: [
+                'ai-robot-brain/nav2-navigation'
+              ]
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Part 4: Vision-Language-Action (VLA)',
+          items: [
+            {
+              type: 'category',
+              label: 'Chapter 12: Introduction to Vision-Language-Action',
+              items: [
+                'vla/intro'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 13: Voice-to-Action Pipelines',
+              items: [
+                'vla/voice-to-action'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 14: Cognitive Planning with LLMs',
+              items: [
+                'vla/cognitive-planning'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Chapter 15: Capstone – The Autonomous Humanoid',
+              items: [
+                'vla/capstone'
+              ]
+            }
+          ]
         }
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Module 2 - The Digital Twin (Gazebo & Unity)',
-      items: [
-        {
-          type: 'category',
-          label: 'The Digital Twin',
-          items: [
-            'digital-twin/introduction',
-            'digital-twin/physics-simulation',
-            'digital-twin/sensor-simulation',
-            'digital-twin/hri-unity'
-          ],
-        }
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Module 3 - The AI-Robot Brain (NVIDIA Isaac)',
-      items: [
-        {
-          type: 'category',
-          label: 'The AI-Robot Brain',
-          items: [
-            'ai-robot-brain/introduction',
-            'ai-robot-brain/isaac-sim',
-            'ai-robot-brain/isaac-ros',
-            'ai-robot-brain/nav2-navigation'
-          ],
-        }
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Module 4 - Vision-Language-Action (VLA) Overview',
-      items: [
-        {
-          type: 'category',
-          label: 'Vision-Language-Action Overview',
-          items: [
-            'vla/index',
-            'vla/intro',
-            'vla/concepts',
-            'vla/embodied-intelligence',
-            'vla/architecture'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Voice-to-Action Systems',
-          items: [
-            'vla/voice-to-action',
-            'vla/whisper-integration',
-            'vla/speech-pipeline',
-            'vla/voice-challenges'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Cognitive Planning with LLMs',
-          items: [
-            'vla/cognitive-planning',
-            'vla/llm-translation',
-            'vla/ros2-actions',
-            'vla/nlg-processing'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Capstone: Autonomous Humanoid',
-          items: [
-            'vla/capstone',
-            'vla/perception-system',
-            'vla/navigation-system',
-            'vla/manipulation-system',
-            'vla/integration-overview'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Implementation & Best Practices',
-          items: [
-            'vla/edge-cases',
-            'vla/implementation-guidelines',
-            'vla/conclusion'
-          ],
-        }
-      ],
-    },
+      ]
+    }
   ],
 };
 
