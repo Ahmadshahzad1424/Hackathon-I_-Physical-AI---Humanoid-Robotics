@@ -105,8 +105,8 @@
 
 /* Common styles for all sections */
 .landing-section {
-  margin: 4rem 0;
-  padding: 2rem 0;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .landing-section-title {
@@ -313,6 +313,46 @@ th, td {
 .footer {
   background: var(--ifm-color-secondary-darkest);
   padding: 3rem 0;
+}
+
+/* =========================
+   Light Mode Landing Page Styles
+========================= */
+[data-theme='light'] .landing-page {
+  background: var(--light-bg-primary);
+}
+
+[data-theme='light'] .landing-section {
+  background: var(--light-bg-primary);
+}
+
+[data-theme='light'] .landing-section-title {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='light'] .landing-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .heroSection {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 254, 252, 0.95) 100%);
+}
+
+[data-theme='light'] .bookOverview {
+  background: var(--light-bg-secondary);
+}
+
+[data-theme='light'] .modulesGrid {
+  background: var(--light-bg-primary);
+}
+
+[data-theme='light'] .ctaSection {
+  background: linear-gradient(135deg, var(--light-bg-secondary) 0%, var(--light-bg-tertiary) 100%);
 }
 
 /* =========================

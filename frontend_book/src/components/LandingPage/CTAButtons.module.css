@@ -1,0 +1,80 @@
+.ctaSection {
+  padding: 2.5rem 1rem;
+  background: linear-gradient(135deg, var(--dark-bg-secondary) 0%, var(--dark-bg-tertiary) 100%);
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionDescription {
+  color: var(--dark-text-secondary);
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  min-width: 220px;
+  background: var(--neon-mix);
+  box-shadow: var(--neon-blue-glow);
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #00eeff, 0 0 30px rgba(0, 238, 255, 0.7),
+              0 0 20px #bd00ff, 0 0 30px rgba(189, 0, 255, 0.7);
+}
+
+.secondaryButton {
+  min-width: 220px;
+  border: 2px solid var(--neon-blue);
+}
+
+.secondaryButton:hover {
+  background: rgba(0, 238, 255, 0.1);
+  box-shadow: var(--neon-blue-glow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ctaSection {
+    padding: 3rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .buttonsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+}
