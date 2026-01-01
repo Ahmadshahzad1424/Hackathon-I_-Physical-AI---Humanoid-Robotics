@@ -121,7 +121,7 @@
 }
 
 /* Button styles for landing page */
-.neon-button {
+.neon-button  {
   background: var(--neon-mix);
   color: rgb(0, 0, 0);
   border: 1px solid black;
@@ -142,7 +142,7 @@
               0 0 20px #bd00ff, 0 0 30px rgba(189, 0, 255, 0.7);
 }
 
-.neon-button-secondary {
+ /* {
   background: transparent;
   color: var(--neon-blue);
   border: 2px solid var(--neon-blue);
@@ -150,7 +150,7 @@
   
   color: rgb(0, 0, 0);
   border: 1px solid black;
-}
+} */
 
 .neon-button-secondary:hover {
   background: rgba(0, 238, 255, 0.1);
