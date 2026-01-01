@@ -13,7 +13,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://github.com/Ahmadshahzad1424/Hackathon-I_-Physical-AI---Humanoid-Robotics',
+  url: 'https://hackathon-i-physical-ai-humanoid-ro-tau.vercel.app/,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
