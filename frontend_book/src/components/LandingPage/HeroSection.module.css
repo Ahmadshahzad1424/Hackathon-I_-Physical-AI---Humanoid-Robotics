@@ -1,45 +1,25 @@
-/* 1. Define the variables for that "Neon/Dark" look */
-:root {
-  --neon-blue: #00f3ff;
-  --neon-purple: #bc13fe;
-  --neon-mix: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
-  --text-main: #ffffff;
-  --text-muted: #b3b3b3;
-  --bg-dark: #050505;
-}
-
-/* 2. The Main Section */
 .heroSection {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 4rem 1rem;
-  /* Deep dark background */
-  background-color: var(--bg-dark);
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(18, 18, 18, 0.95) 100%);
   position: relative;
   overflow: hidden;
-  /* A subtle grid pattern overlay for texture */
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
 }
 
-/* Ambient Glow Effect */
 .heroSection::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: 
-    radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08) 0%, transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(188, 19, 254, 0.08) 0%, transparent 25%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(0, 238, 255, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(189, 0, 255, 0.05) 0%, transparent 20%);
   z-index: 1;
-  pointer-events: none;
 }
 
 .heroContainer {
@@ -48,44 +28,33 @@
   z-index: 2;
 }
 
-/* 3. Typography "Wow" Factor */
 .heroTitle {
-  font-size: 4rem; /* Increased size slightly */
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
-  font-weight: 800;
-  
-  /* The Gradient Text Logic */
+  line-height: 1.2;
   background: var(--neon-mix);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
-  
-  /* The Glow: Uses drop-shadow filter because text-shadow doesn't work well with transparent text */
-  filter: drop-shadow(0 0 15px rgba(189, 0, 255, 0.3));
+  background-clip: text;
 }
 
 .heroSubtitle {
   font-size: 1.5rem;
-  color: var(--text-main); /* Pure white for readability */
+  color: var(--dark-text-primary);
   margin-bottom: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-weight: 400;
 }
 
 .heroDescription {
-  font-size: 1.125rem;
-  color: var(--text-muted); /* Light grey (not dark) */
-  margin-bottom: 3rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  color: var(--dark-text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* 4. Button Styling (Added these to match the theme) */
 .heroButtons {
   display: flex;
   gap: 1.5rem;
@@ -94,55 +63,50 @@
 }
 
 .primaryButton {
-  padding: 1rem 2rem;
-  min-width: 180px;
-  border: none;
-  border-radius: 50px;
-  background: var(--neon-mix);
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.primaryButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(0, 243, 255, 0.6);
+  min-width: 200px;
 }
 
 .secondaryButton {
-  padding: 1rem 2rem;
-  min-width: 180px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.05); /* Glass effect */
-  color: var(--text-main);
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  backdrop-filter: blur(5px);
-  transition: background 0.2s;
-}
-
-.secondaryButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--text-main);
+  min-width: 200px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .heroSection {
+    padding: 3rem 1rem;
+  }
+
   .heroTitle {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
+
   .heroSubtitle {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
+
   .heroDescription {
     font-size: 1rem;
   }
-  .primaryButton, .secondaryButton {
+
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
     width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
   }
 }

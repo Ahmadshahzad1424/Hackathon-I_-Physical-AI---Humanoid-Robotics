@@ -5,29 +5,25 @@ const { themes: prismThemes } = require('prism-react-renderer');
 const config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'Advanced Robotics Education Platform',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.jpg',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  // Future flags
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
-  url: 'https://github.com/Ahmadshahzad1424/Hackathon-I_-Physical-AI---Humanoid-Robotics',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // 1. Site URL (Where your site will be hosted)
+  url: 'https://Ahmadshahzad1424.github.io', 
+  
+  // 2. Base URL (Your repository name with slashes)
+  baseUrl: '/Hackathon-I_-Physical-AI---Humanoid-Robotics/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'PANAVERSITY', // Usually your GitHub org/user name.
-  projectName: 'Hackathon_I_Physical_Humanoid_Robotics', // Usually your repo name.
+  // 3. GitHub Deployment Config
+  organizationName: 'Ahmadshahzad1424', // Changed from PANAVERSITY
+  projectName: 'Hackathon-I_-Physical-AI---Humanoid-Robotics', // Updated to match your repo URL
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -39,10 +35,9 @@ const config = {
       {
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          // Updated Edit URL to your repo
           editUrl:
-            'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics/tree/main/',
+            'https://github.com/Ahmadshahzad1424/Hackathon-I_-Physical-AI---Humanoid-Robotics/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -50,11 +45,9 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          // Updated Edit URL to your repo
           editUrl:
-            'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics/tree/main/',
-          // Useful options to enforce blogging best practices
+            'https://github.com/Ahmadshahzad1424/Hackathon-I_-Physical-AI---Humanoid-Robotics/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -67,16 +60,20 @@ const config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo.jpg',
+
+    // FORCE DARK MODE (Keeps your "Wow" look active)
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
     },
+
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
       logo: {
         alt: 'Physical AI & Humanoid Robotics Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.jpg',
       },
       items: [
         {
@@ -87,7 +84,8 @@ const config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics',
+          // Updated to your GitHub Repo
+          href: 'https://github.com/Ahmadshahzad1424/Hackathon-I_-Physical-AI---Humanoid-Robotics',
           label: 'GitHub',
           position: 'right',
         },
@@ -146,13 +144,15 @@ const config = {
               to: '/blog',
             },
             {
+              // Updated to your GitHub Repo
               label: 'GitHub',
-              href: 'https://github.com/PANAVERSITY/Hackathon_I_Physical_Humanoid_Robotics',
+              href: 'https://github.com/Ahmadshahzad1424/Hackathon-I_-Physical-AI---Humanoid-Robotics',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} PANAVERSITY. Built with Docusaurus.`,
+      // Updated Copyright Name
+      copyright: `Copyright © ${new Date().getFullYear()} Ahmad Shahzad. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
