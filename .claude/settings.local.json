@@ -51,7 +51,11 @@
       "Bash(.specify/scripts/bash/create-new-feature.sh --json --number 6 --short-name \"book-structure\" \"Project: Physical AI & Humanoid Robotics \\(Book Structure & Sidebar\\)\n\nObjective:\nRewrite the existing documentation structure into a clean, book-style hierarchy using Parts, Chapters, and subtopics, without changing any technical content or learning material.\n\nScope:\n- Apply naming and grouping changes only\n- Preserve all existing topics, pages, and technical meaning\n- Reorganize content into a logical book flow suitable for a technical textbook\n\nTarget structure:\n- Book title: Physical AI & Humanoid Robotics\n- Preface section introducing embodied intelligence\n- Five major Parts covering VLA, ROS 2, Digital Twins, AI-Robot Brain, and Robot Structure\n- Chapters sequentially numbered with clear, descriptive titles\n- Existing pages mapped as chapter subtopics\n\nSuccess criteria:\n- All original content remains accessible\n- No topics removed, merged, or rewritten\n- Navigation reads like a professional technical book\n- Clear progression from concepts to systems to capstone\n- Fully compatible with Docusaurus\")",
       "Bash(mkdir -p specs/6-book-structure)",
       "Bash(git config user.name)",
-      "Bash(.specify/scripts/powershell/update-agent-context.ps1 -AgentType claude)"
+      "Bash(.specify/scripts/powershell/update-agent-context.ps1 -AgentType claude)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh -Json -RequireTasks -IncludeTasks)",
+      "Bash(npm start)",
+      "Bash(npx docusaurus start --port 3001)",
+      "Bash(npx docusaurus start --port 3002)"
     ]
   }
 }
