@@ -123,8 +123,8 @@
 /* Button styles for landing page */
 .neon-button {
   background: var(--neon-mix);
-  color: white;
-  border: none;
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   border-radius: 50px;
@@ -147,6 +147,9 @@
   color: var(--neon-blue);
   border: 2px solid var(--neon-blue);
   box-shadow: none;
+  
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
 }
 
 .neon-button-secondary:hover {
@@ -189,6 +192,9 @@
   .neon-button {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+    
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
   }
 }
 
@@ -227,6 +233,9 @@ code {
   border-radius: .375rem;
   font-weight: 600;
   transition: transform .15s ease, box-shadow .15s ease;
+  
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
 }
 
 .button:hover {
@@ -238,10 +247,14 @@ code {
    Cards
 ========================= */
 .card {
+  
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
   border-radius: .75rem;
   border: 1px solid var(--ifm-color-secondary-lighter);
   box-shadow: var(--ifm-global-shadow-sm);
   transition: all .25s ease;
+
 }
 
 .card:hover {

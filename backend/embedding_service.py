@@ -85,9 +85,9 @@ class EmbeddingService:
                     embedding_records.append(embedding_record)
                     logger.info(f"Successfully generated embedding for chunk {chunk.id}")
 
-                    # Add a small delay between requests to be more respectful to the API
+                    # Add a delay between requests to be more respectful to the API
                     import time
-                    time.sleep(0.5)
+                    time.sleep(Config.DELAY_BETWEEN_RETRIES * 2)  # Use the configured delay with a multiplier for better rate limiting
 
                     break  # Success, move to the next chunk
 

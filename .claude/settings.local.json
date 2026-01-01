@@ -71,7 +71,10 @@
       "Bash(curl -s https://hackathon-i-physical-ai-humanoid-ro-tau.vercel.app/sitemap.xml)",
       "Bash(tasklist)",
       "Bash(findstr python)",
-      "Bash(python test_sitemap.py)"
+      "Bash(python test_sitemap.py)",
+      "Bash(python test_small.py)",
+      "Bash(timeout 300 python main.py)",
+      "Bash(timeout 120 tail -f \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b362f8d.output\")"
     ]
   }
 }
