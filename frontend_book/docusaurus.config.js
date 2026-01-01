@@ -12,11 +12,19 @@ const config = {
     v4: true,
   },
 
+<<<<<<< HEAD
   // 1. Site URL (Where your site will be hosted)
   url: 'https://Ahmadshahzad1424.github.io', 
   
   // 2. Base URL (Your repository name with slashes)
   baseUrl: '/Hackathon-I_-Physical-AI---Humanoid-Robotics/',
+=======
+  // Set the production url of your site here
+  url: 'https://hackathon-i-physical-ai-humanoid-ro-tau.vercel.app/,
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/',
+>>>>>>> fbe4b552d109f4c9fcdd748c923ac89b3879c245
 
   // 3. GitHub Deployment Config
   organizationName: 'Ahmadshahzad1424', // Changed from PANAVERSITY
