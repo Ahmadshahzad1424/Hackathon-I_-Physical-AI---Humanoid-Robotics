@@ -36,16 +36,6 @@ def main():
 
     logger.info("Configuration validated successfully")
 
-    # Get URLs to crawl from configuration
-    urls_to_crawl = Config.VERCEL_URLS
-    logger.info(f"URLs to crawl: {urls_to_crawl}")
-
-    # Additional configuration options can be customized here
-    logger.info(f"Chunk size: {Config.CHUNK_SIZE}")
-    logger.info(f"Chunk overlap: {Config.CHUNK_OVERLAP}")
-    logger.info(f"Embedding model: {Config.EMBEDDING_MODEL}")
-    logger.info(f"Qdrant collection: {Config.QDRANT_COLLECTION_NAME}")
-
     # Initialize the ingestion pipeline
     try:
         pipeline = IngestionPipeline()
@@ -53,6 +43,31 @@ def main():
     except Exception as e:
         logger.error(f"Failed to initialize ingestion pipeline: {str(e)}")
         return
+
+    # Get URLs to crawl - try sitemap first, then fall back to default URLs
+    print("Discovering all URLs from sitemap...")
+    try:
+        urls_from_sitemap = pipeline.get_all_urls_from_sitemap()
+
+        if urls_from_sitemap:
+            urls_to_crawl = urls_from_sitemap
+            print(f"Found {len(urls_to_crawl)} URLs from sitemap")
+        else:
+            # Fall back to configured URLs
+            urls_to_crawl = Config.VERCEL_URLS
+            print(f"Using default URLs from config: {len(urls_to_crawl)} URLs")
+    except Exception as e:
+        logger.warning(f"Failed to get URLs from sitemap, using default URLs: {str(e)}")
+        urls_to_crawl = Config.VERCEL_URLS
+        print(f"Using default URLs from config: {len(urls_to_crawl)} URLs")
+
+    logger.info(f"URLs to crawl: {urls_to_crawl}")
+
+    # Additional configuration options can be customized here
+    logger.info(f"Chunk size: {Config.CHUNK_SIZE}")
+    logger.info(f"Chunk overlap: {Config.CHUNK_OVERLAP}")
+    logger.info(f"Embedding model: {Config.EMBEDDING_MODEL}")
+    logger.info(f"Qdrant collection: {Config.QDRANT_COLLECTION_NAME}")
 
     # Run the full pipeline
     try:

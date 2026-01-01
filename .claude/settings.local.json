@@ -66,7 +66,12 @@
       "Bash(pip install:*)",
       "Bash(pip index versions cohere)",
       "Bash(python main.py)",
-      "Bash(python test_crawler.py)"
+      "Bash(python test_crawler.py)",
+      "Bash(python check_points.py)",
+      "Bash(curl -s https://hackathon-i-physical-ai-humanoid-ro-tau.vercel.app/sitemap.xml)",
+      "Bash(tasklist)",
+      "Bash(findstr python)",
+      "Bash(python test_sitemap.py)"
     ]
   }
 }

@@ -8,6 +8,7 @@ import logging
 from urllib.parse import urljoin, urlparse
 import time
 from copy import deepcopy
+import xml.etree.ElementTree as ET
 
 from models import CrawledPage
 
@@ -221,3 +222,60 @@ class URLCrawler:
             return True
 
         return False
+
+    def parse_sitemap(self, sitemap_url: str, base_url: str) -> List[str]:
+        """
+        Parse a sitemap.xml file and extract all URLs
+
+        Args:
+            sitemap_url: URL to the sitemap.xml file
+            base_url: Base URL of the site (used to fix domain issues in sitemap)
+
+        Returns:
+            List of valid URLs extracted from the sitemap
+        """
+        try:
+            logger.info(f"Parsing sitemap: {sitemap_url}")
+            response = self.session.get(sitemap_url, timeout=self.timeout)
+            response.raise_for_status()
+
+            # Parse the XML content
+            root = ET.fromstring(response.content)
+
+            # Handle both regular sitemap and sitemap index formats
+            urls = []
+            namespace = {'sitemap': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+
+            # Get all URL elements
+            for url_elem in root.findall('sitemap:url', namespace):
+                loc_elem = url_elem.find('sitemap:loc', namespace)
+                if loc_elem is not None:
+                    url = loc_elem.text.strip()
+
+                    # Fix the domain in the sitemap if it's a placeholder
+                    parsed_base = urlparse(base_url)
+                    parsed_url = urlparse(url)
+
+                    # If the sitemap URL has a different domain (like placeholder), fix it
+                    if parsed_url.netloc != parsed_base.netloc and parsed_url.netloc != 'your-docusaurus-site.example.com':
+                        # Keep the path and query from sitemap, but use base domain
+                        fixed_url = f"{parsed_base.scheme}://{parsed_base.netloc}{parsed_url.path}"
+                        if parsed_url.query:
+                            fixed_url += f"?{parsed_url.query}"
+                        urls.append(fixed_url)
+                    elif parsed_url.netloc == 'your-docusaurus-site.example.com':
+                        # Replace the placeholder domain with the actual base URL domain
+                        fixed_url = url.replace('your-docusaurus-site.example.com', parsed_base.netloc)
+                        urls.append(fixed_url)
+                    else:
+                        urls.append(url)
+
+            logger.info(f"Found {len(urls)} URLs in sitemap")
+            return urls
+
+        except ET.ParseError as e:
+            logger.error(f"Error parsing sitemap XML: {str(e)}")
+            return []
+        except Exception as e:
+            logger.error(f"Error fetching or parsing sitemap {sitemap_url}: {str(e)}")
+            return []

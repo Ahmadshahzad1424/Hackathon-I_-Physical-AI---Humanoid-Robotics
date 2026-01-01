@@ -24,6 +24,9 @@ class Config:
     # Vercel URLs to crawl (Updated from DOCUSAURUS_URLS)
     VERCEL_URLS: List[str] = os.getenv("VERCEL_URLS", "").split(",") if os.getenv("VERCEL_URLS") else []
 
+    # Sitemap URL for discovering all pages
+    SITEMAP_URL: str = os.getenv("SITEMAP_URL", "https://hackathon-i-physical-ai-humanoid-ro-tau.vercel.app/sitemap.xml")
+
     # Chunking parameters
     CHUNK_SIZE: int = int(os.getenv("CHUNK_SIZE", "512"))
     CHUNK_OVERLAP: int = int(os.getenv("CHUNK_OVERLAP", "50"))

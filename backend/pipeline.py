@@ -42,6 +42,19 @@ class IngestionPipeline:
         """
         return Config.VERCEL_URLS
 
+    def get_all_urls_from_sitemap(self) -> List[str]:
+        """
+        Get all URLs from the sitemap
+
+        Returns:
+            List of all URLs from the sitemap
+        """
+        from crawler import URLCrawler
+        crawler = URLCrawler()
+
+        sitemap_urls = crawler.parse_sitemap(Config.SITEMAP_URL, Config.VERCEL_URLS[0] if Config.VERCEL_URLS else "https://hackathon-i-physical-ai-humanoid-ro-tau.vercel.app/")
+        return sitemap_urls
+
     def run_pipeline(self, urls: List[str], job_id: Optional[str] = None) -> str:
         """
         Run the full ingestion pipeline from start to finish
