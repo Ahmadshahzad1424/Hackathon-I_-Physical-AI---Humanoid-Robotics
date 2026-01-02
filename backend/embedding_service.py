@@ -87,7 +87,7 @@ class EmbeddingService:
 
                     # Add a delay between requests to be more respectful to the API
                     import time
-                    time.sleep(Config.DELAY_BETWEEN_RETRIES * 2)  # Use the configured delay with a multiplier for better rate limiting
+                    time.sleep(Config.DELAY_BETWEEN_RETRIES * 5)  # Use a larger multiplier for better rate limiting
 
                     break  # Success, move to the next chunk
 

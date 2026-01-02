@@ -75,7 +75,9 @@
       "Bash(python test_small.py)",
       "Bash(timeout 300 python main.py)",
       "Bash(timeout 120 tail -f \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b362f8d.output\")",
-      "Bash(python final_test.py)"
+      "Bash(python final_test.py)",
+      "Bash(timeout 600 python main.py)",
+      "Bash(timeout 60 tail -f \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b702797.output\")"
     ]
   }
 }
