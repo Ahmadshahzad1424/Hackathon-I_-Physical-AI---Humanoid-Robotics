@@ -87,7 +87,8 @@ class EmbeddingService:
 
                     # Add a delay between requests to be more respectful to the API
                     import time
-                    time.sleep(Config.DELAY_BETWEEN_RETRIES * 5)  # Use a larger multiplier for better rate limiting
+                    # Use a more conservative delay to avoid rate limits
+                    time.sleep(Config.DELAY_BETWEEN_RETRIES * 10)  # Increased delay to 10 seconds
 
                     break  # Success, move to the next chunk
 
@@ -98,7 +99,7 @@ class EmbeddingService:
                     if "429" in str(e) or "rate limit" in str(e).lower() or "Please wait and try again later" in str(e):
                         if attempt < max_retries - 1:  # Don't sleep on the last attempt
                             import time
-                            wait_time = Config.DELAY_BETWEEN_RETRIES * (2 ** attempt)  # Exponential backoff
+                            wait_time = Config.DELAY_BETWEEN_RETRIES * 10 * (2 ** attempt)  # Increased base delay
                             logger.info(f"Rate limited. Waiting {wait_time} seconds before retry {attempt + 2}/{max_retries}")
                             time.sleep(wait_time)
                             continue
@@ -143,6 +144,11 @@ class EmbeddingService:
                         input_type="search_document"
                     )
                     all_embeddings.extend(response.embeddings)
+
+                    # Add delay between successful batch requests to be more respectful to the API
+                    import time
+                    time.sleep(Config.DELAY_BETWEEN_RETRIES * 5)  # Conservative delay between batches
+
                     break  # Success, break out of retry loop
                 except Exception as e:
                     logger.error(f"Error generating embeddings for batch {i//batch_size + 1} (attempt {attempt + 1}/{max_retries}): {str(e)}")
@@ -151,7 +157,7 @@ class EmbeddingService:
                     if "429" in str(e) or "rate limit" in str(e).lower() or "Please wait and try again later" in str(e):
                         if attempt < max_retries - 1:  # Don't sleep on the last attempt
                             import time
-                            wait_time = Config.DELAY_BETWEEN_RETRIES * (2 ** attempt)  # Exponential backoff
+                            wait_time = Config.DELAY_BETWEEN_RETRIES * 10 * (2 ** attempt)  # Increased base delay
                             logger.info(f"Rate limited. Waiting {wait_time} seconds before retry {attempt + 2}/{max_retries}")
                             time.sleep(wait_time)
                             continue

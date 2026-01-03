@@ -77,7 +77,14 @@
       "Bash(timeout 120 tail -f \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b362f8d.output\")",
       "Bash(python final_test.py)",
       "Bash(timeout 600 python main.py)",
-      "Bash(timeout 60 tail -f \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b702797.output\")"
+      "Bash(timeout 60 tail -f \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b702797.output\")",
+      "Bash(python -c \"from pipeline import IngestionPipeline; p = IngestionPipeline\\(\\); urls = p.get_all_urls_from_sitemap\\(\\); print\\(f''Total URLs from sitemap: {len\\(urls\\)}''\\); print\\(''First 5 URLs:''\\); [print\\(f''  - {url}''\\) for url in urls[:5]]\")",
+      "Bash(timeout 600 python -c \"\nfrom pipeline import IngestionPipeline\nimport time\n\nprint\\(''Starting ingestion pipeline for all sitemap URLs...''\\)\npipeline = IngestionPipeline\\(\\)\nurls = pipeline.get_all_urls_from_sitemap\\(\\)\nprint\\(f''Processing {len\\(urls\\)} URLs from sitemap...''\\)\n\njob_id = pipeline.run_pipeline\\(urls\\)\njob_status = pipeline.get_job_status\\(job_id\\)\n\nprint\\(f''Job Status: {job_status[\"\"status\"\"]}''\\)\nif job_status[''error_message'']:\n    print\\(f''Error: {job_status[\"\"error_message\"\"]}''\\)\nelse:\n    print\\(''Pipeline completed successfully''\\)\n\n# Check final point count\nfrom qdrant_service import QdrantService\nqdrant_service = QdrantService\\(\\)\ncollection_info = qdrant_service.get_collection_info\\(\\)\nprint\\(f''Final point count: {collection_info.get\\(\"\"point_count\"\", 0\\) if collection_info else 0}''\\)\n\")",
+      "Bash(timeout 1200 python run_batch_ingestion.py)",
+      "Bash(cat \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b2d17cd.output\")",
+      "Bash(python retrieval_test.py)",
+      "Bash(python -c \"\nfrom qdrant_service import QdrantService\nimport os\nprint\\(''Testing Qdrant connection...''\\)\ntry:\n    qdrant_service = QdrantService\\(\\)\n    print\\(''Qdrant service initialized successfully''\\)\n    info = qdrant_service.get_collection_info\\(\\)\n    print\\(f''Collection info: {info}''\\)\nexcept Exception as e:\n    print\\(f''Error connecting to Qdrant: {e}''\\)\n    import traceback\n    traceback.print_exc\\(\\)\n\")",
+      "Bash(python -c \"\nfrom retrieval_test import retrieve_and_validate_embeddings\nretrieve_and_validate_embeddings\\(\\)\n\")"
     ]
   }
 }
