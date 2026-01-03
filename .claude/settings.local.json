@@ -84,7 +84,12 @@
       "Bash(cat \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\b2d17cd.output\")",
       "Bash(python retrieval_test.py)",
       "Bash(python -c \"\nfrom qdrant_service import QdrantService\nimport os\nprint\\(''Testing Qdrant connection...''\\)\ntry:\n    qdrant_service = QdrantService\\(\\)\n    print\\(''Qdrant service initialized successfully''\\)\n    info = qdrant_service.get_collection_info\\(\\)\n    print\\(f''Collection info: {info}''\\)\nexcept Exception as e:\n    print\\(f''Error connecting to Qdrant: {e}''\\)\n    import traceback\n    traceback.print_exc\\(\\)\n\")",
-      "Bash(python -c \"\nfrom retrieval_test import retrieve_and_validate_embeddings\nretrieve_and_validate_embeddings\\(\\)\n\")"
+      "Bash(python -c \"\nfrom retrieval_test import retrieve_and_validate_embeddings\nretrieve_and_validate_embeddings\\(\\)\n\")",
+      "Bash(cat \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--PANAVERSITY-Hackathon-I-Physical-Humanoid-Robotics\\\\tasks\\\\bfeb53d.output\")",
+      "Bash(python validate_content.py)",
+      "Bash(python end_to_end_test.py)",
+      "Bash(.specify/scripts/powershell/create-new-feature.ps1 -Json \"Build an AI Agent with retrieval-augmented capabilities\n\nTarget audience: Developers building agent-based RAG systems\nFocus: Agent orchestration with tool-based retrieval over book content\n\nSuccess criteria:\n- Agent is created using the OpenAI Agents SDK\n- Retrieval tool successfully queries Qdrant via Spec-2 logic\n- Agent answers questions using retrieved chunks only\n- Agent can handle simple follow-up queries\n\nConstraints:\n- Tech stack: Python, OpenAI Agents SDK, Qdrant\n- Retrieval: Reuse existing retrieval pipeline\n- Format: Minimal, modular agent setup\n- Timeline: Complete within 2-3 tasks\n\nNot building:\n- Frontend or UI\n- FastAPI integration\n- Authentication or user sessions\n- Model fine-tuning or prompt experimentation\" --json --number 1 --short-name \"rag-agent\")",
+      "Bash(.specify/scripts/bash/create-new-feature.sh --help)"
     ]
   }
 }
