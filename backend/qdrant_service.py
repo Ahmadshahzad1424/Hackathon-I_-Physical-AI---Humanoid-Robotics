@@ -6,8 +6,8 @@ from typing import List, Optional
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
 from qdrant_client.http.models import Distance, VectorParams, PointStruct, FieldCondition, Filter, MatchValue
-from config import Config
-from models import EmbeddingRecord
+from .config import Config
+from .models import EmbeddingRecord
 
 
 logger = logging.getLogger(__name__)

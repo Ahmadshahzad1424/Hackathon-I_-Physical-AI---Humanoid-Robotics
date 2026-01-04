@@ -64,10 +64,10 @@ Enable the RAG agent to maintain conversation context and handle follow-up quest
 The agent maintains conversation context between turns and can answer follow-up questions that reference previous interactions.
 
 - [x] T016 [P] [US2] Implement session management for conversation context in agent.py
-- [ ] T017 [P] [US2] Create AgentSession storage mechanism to track conversation history
-- [ ] T018 [US2] Implement context retrieval for follow-up queries based on session_id
-- [ ] T019 [US2] Add conversation memory to agent to reference previous interactions
-- [ ] T020 [US2] Create test scenarios for multi-turn conversations with follow-up questions
+- [x] T017 [P] [US2] Create AgentSession storage mechanism to track conversation history
+- [x] T018 [US2] Implement context retrieval for follow-up queries based on session_id
+- [x] T019 [US2] Add conversation memory to agent to reference previous interactions
+- [x] T020 [US2] Create test scenarios for multi-turn conversations with follow-up questions
 
 ## Phase 5: User Story 3 - Use Retrieval Tool with Qdrant (Priority: P3)
 
@@ -77,21 +77,21 @@ Create a dedicated retrieval tool that the agent uses to query Qdrant, ensuring 
 ### Independent Test Criteria
 The agent explicitly calls a dedicated retrieval tool when answering questions, and this tool successfully queries Qdrant and returns relevant information.
 
-- [ ] T021 [P] [US3] Create dedicated retrieval tool function that queries Qdrant in agent.py
-- [ ] T022 [P] [US3] Register the retrieval tool with the OpenAI Assistant
-- [ ] T023 [US3] Implement tool response processing to format Qdrant results for the agent
-- [ ] T024 [US3] Add error handling for retrieval tool when no relevant content is found
-- [ ] T025 [US3] Create test to verify agent uses the dedicated retrieval tool for queries
+- [x] T021 [P] [US3] Create dedicated retrieval tool function that queries Qdrant in agent.py
+- [x] T022 [P] [US3] Register the retrieval tool with the OpenAI Assistant
+- [x] T023 [US3] Implement tool response processing to format Qdrant results for the agent
+- [x] T024 [US3] Add error handling for retrieval tool when no relevant content is found
+- [x] T025 [US3] Create test to verify agent uses the dedicated retrieval tool for queries
 
 ## Phase 6: Polish & Cross-Cutting Concerns
 
 ### Goal
 Complete the implementation with proper error handling, validation, and documentation.
 
-- [ ] T026 Implement comprehensive error handling for API failures and edge cases
-- [ ] T027 Add input validation for user queries and response formatting
-- [ ] T028 Create documentation for the RAG agent usage and API
-- [ ] T029 Implement logging for debugging and monitoring purposes
-- [ ] T030 Run integration tests to validate all user stories work together
-- [ ] T031 Update README with instructions for running the RAG agent
-- [ ] T032 Perform final validation that all success criteria from spec are met
+- [x] T026 Implement comprehensive error handling for API failures and edge cases
+- [x] T027 Add input validation for user queries and response formatting
+- [x] T028 Create documentation for the RAG agent usage and API
+- [x] T029 Implement logging for debugging and monitoring purposes
+- [x] T030 Run integration tests to validate all user stories work together
+- [x] T031 Update README with instructions for running the RAG agent
+- [x] T032 Perform final validation that all success criteria from spec are met

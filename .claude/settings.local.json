@@ -97,7 +97,15 @@
       "Bash(dir)",
       "Bash(dir \"D:\\\\PANAVERSITY\\\\Hackathon_I_Physical_Humanoid Robotics\\\\specs\\\\001-rag-agent\\\\checklists\")",
       "Bash(dir *.txt)",
-      "Bash(ls *.txt)"
+      "Bash(ls *.txt)",
+      "Bash(dir README.md)",
+      "Bash(dir *README*)",
+      "Bash(python tests/validate_final.py)",
+      "Bash(python tests/validate_final_no_unicode.py)",
+      "Bash(.specify/scripts/powershell/create-phr.ps1 -Title \"RAG Agent Implementation Complete\" -Stage tasks -Feature \"001-rag-agent\" -Json)",
+      "Bash(.specify/scripts/bash/create-phr.sh --title \"RAG Agent Implementation Complete\" --stage tasks --feature \"001-rag-agent\" --json)",
+      "Bash(dir agent_sdk_docs.md)",
+      "Bash(python agent.py)"
     ]
   }
 }

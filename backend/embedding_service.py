@@ -4,8 +4,8 @@ Embedding service class to handle embedding generation using Cohere
 import cohere
 import logging
 from typing import List, Optional
-from config import Config
-from models import TextChunk, EmbeddingRecord
+from .config import Config
+from .models import TextChunk, EmbeddingRecord
 
 
 logger = logging.getLogger(__name__)
