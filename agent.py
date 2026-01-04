@@ -15,6 +15,7 @@ from backend.qdrant_service import QdrantService
 from backend.embedding_service import EmbeddingService
 from backend.config import Config
 from backend.models import AgentSession, RetrievalRequest, RetrievedChunk, AgentResponse
+import uuid
 
 
 # Configure logging
@@ -46,6 +47,12 @@ class RAGAgent:
 
         # Create the assistant with retrieval tool
         self.assistant = self._create_assistant()
+
+        # Store active threads for session management
+        self.active_threads = {}
+
+        # Store session objects to track conversation history
+        self.sessions = {}
 
         logger.info("RAG Agent initialized successfully")
 
@@ -117,6 +124,26 @@ class RAGAgent:
             logger.error(f"Error retrieving content for query '{query}': {str(e)}")
             return []
 
+    def _get_or_create_thread(self, session_id: Optional[str] = None):
+        """
+        Get an existing thread for the session or create a new one
+
+        Args:
+            session_id: Optional session ID to retrieve existing thread
+
+        Returns:
+            Thread object
+        """
+        if session_id and session_id in self.active_threads:
+            # Return existing thread
+            return self.active_threads[session_id]
+        else:
+            # Create a new thread
+            thread = self.openai_client.beta.threads.create()
+            new_session_id = session_id or str(uuid.uuid4())
+            self.active_threads[new_session_id] = thread
+            return thread
+
     def query(self, question: str, session_id: Optional[str] = None) -> Dict[str, Any]:
         """
         Query the agent with a question
@@ -128,10 +155,11 @@ class RAGAgent:
         Returns:
             Dictionary containing the response and metadata
         """
-        logger.info(f"Processing query: {question}")
+        logger.info(f"Processing query in session {session_id or 'new'}: {question}")
 
-        # Create a thread for the conversation
-        thread = self.openai_client.beta.threads.create()
+        # Get or create a thread for the conversation
+        thread = self._get_or_create_thread(session_id)
+        current_session_id = session_id or list(self.active_threads.keys())[-1]
 
         # Add the user's message to the thread
         self.openai_client.beta.threads.messages.create(
@@ -209,10 +237,56 @@ class RAGAgent:
         # Return the response with metadata
         return {
             "response": assistant_response,
-            "session_id": session_id or thread.id,  # Use thread ID as session ID if not provided
+            "session_id": current_session_id,
+            "thread_id": thread.id,
             "retrieved_chunks": retrieved_chunks,  # Include retrieved chunks for reference
             "citations": citations  # Include citations
         }
+
+    def start_session(self) -> str:
+        """
+        Start a new conversation session
+
+        Returns:
+            Session ID for the new session
+        """
+        # Create a new thread for the session
+        thread = self.openai_client.beta.threads.create()
+        session_id = str(uuid.uuid4())
+
+        # Create an AgentSession object to track conversation history
+        agent_session = AgentSession(
+            session_id=session_id,
+            conversation_context={"messages": [], "thread_id": thread.id},
+            metadata={"created_with_assistant_id": self.assistant.id}
+        )
+
+        # Store the thread and session object
+        self.active_threads[session_id] = thread
+        self.sessions[session_id] = agent_session
+
+        logger.info(f"Started new session with ID: {session_id}")
+        return session_id
+
+    def end_session(self, session_id: str) -> bool:
+        """
+        End a conversation session and clean up resources
+
+        Args:
+            session_id: ID of the session to end
+
+        Returns:
+            True if session was ended successfully, False otherwise
+        """
+        if session_id in self.active_threads:
+            # In a real implementation, we might want to archive the thread
+            # For now, just remove it from active threads
+            del self.active_threads[session_id]
+            logger.info(f"Ended session with ID: {session_id}")
+            return True
+        else:
+            logger.warning(f"Attempted to end non-existent session: {session_id}")
+            return False
 
 
 def main():

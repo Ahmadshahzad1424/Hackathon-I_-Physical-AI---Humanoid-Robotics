@@ -130,13 +130,15 @@ def test_content_fallback():
 
 def run_all_tests():
     """Run all tests and report results"""
-    print("Running RAG Agent Basic Functionality Tests")
-    print("=" * 50)
+    print("Running RAG Agent Comprehensive Functionality Tests")
+    print("=" * 55)
 
     tests = [
         test_agent_initialization,
         test_basic_query,
-        test_multiple_queries
+        test_multiple_queries,
+        test_retrieved_content_usage,
+        test_content_fallback
     ]
 
     results = []
@@ -144,7 +146,7 @@ def run_all_tests():
         result = test()
         results.append(result)
 
-    print("\n" + "=" * 50)
+    print("\n" + "=" * 55)
     print("Test Summary:")
     passed = sum(results)
     total = len(results)

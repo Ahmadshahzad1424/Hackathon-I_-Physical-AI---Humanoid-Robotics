@@ -53,7 +53,7 @@ The agent successfully responds to questions about book content by retrieving re
 - [x] T012 [US1] Implement function to convert user queries to embeddings using existing embedding service
 - [x] T013 [US1] Implement Qdrant search integration in the agent to retrieve relevant chunks
 - [x] T014 [US1] Implement response generation that uses only retrieved content from Qdrant
-- [ ] T015 [US1] Create comprehensive test to validate agent answers book-related questions using retrieved content only
+- [x] T015 [US1] Create comprehensive test to validate agent answers book-related questions using retrieved content only
 
 ## Phase 4: User Story 2 - Handle Follow-up Queries (Priority: P2)
 
@@ -63,7 +63,7 @@ Enable the RAG agent to maintain conversation context and handle follow-up quest
 ### Independent Test Criteria
 The agent maintains conversation context between turns and can answer follow-up questions that reference previous interactions.
 
-- [ ] T016 [P] [US2] Implement session management for conversation context in agent.py
+- [x] T016 [P] [US2] Implement session management for conversation context in agent.py
 - [ ] T017 [P] [US2] Create AgentSession storage mechanism to track conversation history
 - [ ] T018 [US2] Implement context retrieval for follow-up queries based on session_id
 - [ ] T019 [US2] Add conversation memory to agent to reference previous interactions
