@@ -161,12 +161,29 @@ class RAGAgent:
         thread = self._get_or_create_thread(session_id)
         current_session_id = session_id or list(self.active_threads.keys())[-1]
 
+        # If this is a new session, create an AgentSession object
+        if current_session_id not in self.sessions:
+            agent_session = AgentSession(
+                session_id=current_session_id,
+                conversation_context={"messages": [], "thread_id": thread.id},
+                metadata={"created_with_assistant_id": self.assistant.id}
+            )
+            self.sessions[current_session_id] = agent_session
+
         # Add the user's message to the thread
         self.openai_client.beta.threads.messages.create(
             thread_id=thread.id,
             role="user",
             content=question
         )
+
+        # Add the user's question to the conversation context
+        if current_session_id in self.sessions:
+            self.sessions[current_session_id].conversation_context["messages"].append({
+                "role": "user",
+                "content": question,
+                "timestamp": str(datetime.now())
+            })
 
         # Run the assistant
         run = self.openai_client.beta.threads.runs.create(
@@ -177,6 +194,7 @@ class RAGAgent:
         # Wait for the run to complete and handle tool calls
         while run.status in ["queued", "in_progress", "requires_action"]:
             import time
+            from datetime import datetime
             time.sleep(1)  # Wait a bit before checking again
             run = self.openai_client.beta.threads.runs.retrieve(
                 thread_id=thread.id,
@@ -229,6 +247,14 @@ class RAGAgent:
                     if content_block.type == "text":
                         assistant_response = content_block.text.value
                         break
+
+        # Add the assistant's response to the conversation context
+        if current_session_id in self.sessions:
+            self.sessions[current_session_id].conversation_context["messages"].append({
+                "role": "assistant",
+                "content": assistant_response,
+                "timestamp": str(datetime.now())
+            })
 
         # Get retrieved content to include in response
         retrieved_chunks = self._retrieve_content(question)
