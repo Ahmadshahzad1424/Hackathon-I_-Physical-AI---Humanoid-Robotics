@@ -16,6 +16,9 @@ class Config:
     # Cohere configuration
     COHERE_API_KEY: str = os.getenv("COHERE_API_KEY", "")
 
+    # OpenAI configuration
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+
     # Qdrant configuration
     QDRANT_URL: str = os.getenv("QDRANT_URL", "")
     QDRANT_API_KEY: str = os.getenv("QDRANT_API_KEY", "")
@@ -36,7 +39,7 @@ class Config:
 
     # Retry Logic (New)
     MAX_RETRIES: int = int(os.getenv("MAX_RETRIES", "3"))
-    
+
     # Checks for 'DELAY' first, falls back to 'DEPAY' (typo in env), defaults to 1
     DELAY_BETWEEN_RETRIES: int = int(os.getenv("DELAY_BETWEEN_RETRIES", os.getenv("DEPAY_BETWEEN_RETRIES", "1")))
 
@@ -48,6 +51,9 @@ class Config:
 
         if not cls.COHERE_API_KEY or cls.COHERE_API_KEY.strip() == "":
             errors.append("COHERE_API_KEY is required")
+
+        if not cls.OPENAI_API_KEY or cls.OPENAI_API_KEY.strip() == "":
+            errors.append("OPENAI_API_KEY is required")
 
         if not cls.QDRANT_URL or cls.QDRANT_URL.strip() == "":
             errors.append("QDRANT_URL is required")

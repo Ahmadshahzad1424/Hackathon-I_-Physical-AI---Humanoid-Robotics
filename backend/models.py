@@ -1,5 +1,5 @@
 """
-Data models for the RAG ingestion pipeline
+Data models for the RAG ingestion pipeline and RAG Agent
 """
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -110,3 +110,111 @@ class ProcessingJob:
 
         if self.error_message and self.status != "FAILED":
             raise ValueError("error_message should only be present when status is FAILED")
+
+
+# RAG Agent Models
+@dataclass
+class AgentSession:
+    """Entity representing a conversation session with the RAG agent"""
+
+    session_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    created_at: datetime = field(default_factory=datetime.now)
+    updated_at: datetime = field(default_factory=datetime.now)
+    conversation_context: Dict = field(default_factory=dict)
+    metadata: Dict = field(default_factory=dict)
+
+    def __post_init__(self):
+        """Validate the AgentSession after initialization"""
+        # Validate session_id is a valid UUID format (basic check)
+        try:
+            uuid.UUID(session_id) if hasattr(self, 'session_id') else uuid.UUID(self.session_id)
+        except ValueError:
+            raise ValueError("session_id must be a valid UUID")
+
+        if self.created_at > datetime.now():
+            raise ValueError("created_at must be in the past")
+
+        if hasattr(self, 'updated_at') and self.updated_at < self.created_at:
+            raise ValueError("updated_at must be >= created_at")
+
+
+@dataclass
+class RetrievalRequest:
+    """Entity representing a retrieval request made during a conversation"""
+
+    request_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    session_id: str = ""
+    query_text: str = ""
+    timestamp: datetime = field(default_factory=datetime.now)
+    retrieved_chunks: List[Dict] = field(default_factory=list)
+    retrieval_metadata: Dict = field(default_factory=dict)
+
+    def __post_init__(self):
+        """Validate the RetrievalRequest after initialization"""
+        # Validate request_id is a valid UUID format (basic check)
+        try:
+            uuid.UUID(request_id) if hasattr(self, 'request_id') else uuid.UUID(self.request_id)
+        except ValueError:
+            raise ValueError("request_id must be a valid UUID")
+
+        if not self.session_id:
+            raise ValueError("session_id must reference an existing session")
+
+        if not self.query_text.strip():
+            raise ValueError("query_text must not be empty")
+
+        if not isinstance(self.retrieved_chunks, list):
+            raise ValueError("retrieved_chunks must be an array of content chunks")
+
+
+@dataclass
+class RetrievedChunk:
+    """Entity representing a chunk of content retrieved from Qdrant"""
+
+    chunk_id: str = ""
+    content: str = ""
+    source_url: str = ""
+    score: float = 0.0
+    page_id: str = ""
+    chunk_index: int = 0
+
+    def __post_init__(self):
+        """Validate the RetrievedChunk after initialization"""
+        if not 0 <= self.score <= 1:
+            raise ValueError("score must be between 0 and 1")
+
+        if self.chunk_index < 0:
+            raise ValueError("chunk_index must be non-negative")
+
+        if not self.content.strip():
+            raise ValueError("content must not be empty")
+
+
+@dataclass
+class AgentResponse:
+    """Entity representing a response from the RAG agent"""
+
+    response_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    session_id: str = ""
+    request_id: str = ""
+    content: str = ""
+    timestamp: datetime = field(default_factory=datetime.now)
+    citations: List[str] = field(default_factory=list)
+    response_metadata: Dict = field(default_factory=dict)
+
+    def __post_init__(self):
+        """Validate the AgentResponse after initialization"""
+        # Validate response_id is a valid UUID format (basic check)
+        try:
+            uuid.UUID(response_id) if hasattr(self, 'response_id') else uuid.UUID(self.response_id)
+        except ValueError:
+            raise ValueError("response_id must be a valid UUID")
+
+        if not self.session_id:
+            raise ValueError("session_id must reference an existing session")
+
+        if not self.content.strip():
+            raise ValueError("content must not be empty")
+
+        if not isinstance(self.citations, list):
+            raise ValueError("citations must be a list")

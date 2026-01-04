@@ -5,7 +5,7 @@ import logging
 from typing import List, Optional
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
-from qdrant_client.http.models import Distance, VectorParams, PointStruct
+from qdrant_client.http.models import Distance, VectorParams, PointStruct, FieldCondition, Filter, MatchValue
 from config import Config
 from models import EmbeddingRecord
 
@@ -185,3 +185,94 @@ class QdrantService:
         except Exception as e:
             logger.error(f"Error getting collection info for '{self.collection_name}': {str(e)}")
             return None
+
+    def search_with_payload_filter(self, query_vector: List[float], limit: int = 5, filters: Optional[dict] = None) -> List[dict]:
+        """
+        Search for similar vectors in the collection with optional payload filtering
+
+        Args:
+            query_vector: Vector to search for similar vectors
+            limit: Number of results to return
+            filters: Optional payload filters to apply to the search
+
+        Returns:
+            List of search results with payload and similarity scores
+        """
+        try:
+            # Prepare filters if provided
+            search_filter = None
+            if filters:
+                # Create a filter from the provided dictionary
+                must_conditions = []
+                for key, value in filters.items():
+                    condition = models.FieldCondition(
+                        key=key,
+                        match=models.MatchValue(value=value)
+                    )
+                    must_conditions.append(condition)
+
+                search_filter = models.Filter(must=must_conditions)
+
+            results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=query_vector,
+                limit=limit,
+                query_filter=search_filter
+            )
+
+            # Format results
+            formatted_results = []
+            for result in results:
+                formatted_results.append({
+                    "id": result.id,
+                    "score": result.score,
+                    "payload": result.payload
+                })
+
+            return formatted_results
+
+        except Exception as e:
+            logger.error(f"Error searching in collection '{self.collection_name}': {str(e)}")
+            return []
+
+    def search_text(self, query_text: str, limit: int = 5, filters: Optional[dict] = None) -> List[dict]:
+        """
+        Search for text in the collection by first generating an embedding and then searching
+
+        Args:
+            query_text: Text to search for similar content
+            limit: Number of results to return
+            filters: Optional payload filters to apply to the search
+
+        Returns:
+            List of search results with payload and similarity scores
+        """
+        try:
+            # Generate embedding for the query text using the embedding service
+            from embedding_service import EmbeddingService
+            embedding_service = EmbeddingService()
+
+            # Create a temporary chunk to generate the embedding
+            from models import TextChunk
+            temp_chunk = TextChunk(
+                page_id="query",
+                content=query_text,
+                chunk_index=0,
+                token_count=len(query_text.split())
+            )
+
+            # Generate embedding
+            embedding_records = embedding_service.generate_embeddings([temp_chunk])
+
+            if not embedding_records:
+                logger.error("Failed to generate embedding for query text")
+                return []
+
+            query_vector = embedding_records[0].vector
+
+            # Perform the search
+            return self.search_with_payload_filter(query_vector, limit, filters)
+
+        except Exception as e:
+            logger.error(f"Error performing text search in collection '{self.collection_name}': {str(e)}")
+            return []
